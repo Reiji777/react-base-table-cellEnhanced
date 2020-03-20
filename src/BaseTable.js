@@ -323,7 +323,14 @@ class BaseTable extends React.PureComponent {
       [this._prefixClass('row-cell--align-right')]: column.align === Alignment.RIGHT,
     });
 
-    const extraProps = callOrReturn(this.props.cellProps, { columns, column, columnIndex, rowData, rowIndex });
+    const extraProps = callOrReturn(this.props.cellProps, {
+      cellData,
+      columns,
+      column,
+      columnIndex,
+      rowData,
+      rowIndex,
+    });
     const { tagName, ...rest } = extraProps || {};
     const Tag = tagName || 'div';
     return (
@@ -1039,7 +1046,7 @@ BaseTable.propTypes = {
   rowProps: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
   /**
    * Extra props applied to row cell element
-   * The handler is of the shape of `({ columns, column, columnIndex, rowData, rowIndex }) => object`
+   * The handler is of the shape of `({ cellData, columns, column, columnIndex, rowData, rowIndex }) => object`
    */
   cellProps: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
   /**

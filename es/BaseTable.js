@@ -398,6 +398,7 @@ var BaseTable = /*#__PURE__*/function (_React$PureComponent) {
     });
     var cls = cn(this._prefixClass('row-cell'), cellCls, (_cn2 = {}, _cn2[this._prefixClass('row-cell--align-center')] = column.align === Alignment.CENTER, _cn2[this._prefixClass('row-cell--align-right')] = column.align === Alignment.RIGHT, _cn2));
     var extraProps = callOrReturn(this.props.cellProps, {
+      cellData: cellData,
       columns: columns,
       column: column,
       columnIndex: columnIndex,
@@ -1233,7 +1234,7 @@ BaseTable.propTypes = {
 
   /**
    * Extra props applied to row cell element
-   * The handler is of the shape of `({ columns, column, columnIndex, rowData, rowIndex }) => object`
+   * The handler is of the shape of `({ cellData, columns, column, columnIndex, rowData, rowIndex }) => object`
    */
   cellProps: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
 
